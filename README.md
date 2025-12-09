@@ -1,8 +1,3 @@
-# Blueprint-ZHA---Smart-Switch---TuYa-Smart-Knob-TS004F_von_TZ3000_gwkzibhs-
-A Home Assistant blueprint for the Tuya Zigbee Smart Knob (TS004F, TZ3000_gwkzibhs) using ZHA.  Supports single press, double press, long press, and rotary (left/right) actions.  This device sends multiple event formats; this blueprint normalizes them to clean and reliable triggers.
-
-# Tuya Smart Knob (TS004F, TZ3000_gwkzibhs) – Home Assistant Blueprint
-
 This repository provides a Home Assistant blueprint for the **Tuya Zigbee Smart Knob** (model: `TS004F`, manufacturer: `TZ3000_gwkzibhs`), which is widely sold under various brands.
 
 The blueprint works with **ZHA** and supports:
