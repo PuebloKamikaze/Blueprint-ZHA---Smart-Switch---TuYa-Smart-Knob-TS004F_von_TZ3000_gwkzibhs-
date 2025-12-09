@@ -62,7 +62,7 @@ zha-tuya-smart-knob-TS004F_von_TZ3000_gwkzibhs.png
 
 ## 🔧 Tested With
 
-- Home Assistant OS
+- Home Assistant OS (2025.12.2)
 - Integration: **ZHA**
 - Device ID shown as `TS004F_von_TZ3000_gwkzibhs`
 
@@ -70,13 +70,31 @@ zha-tuya-smart-knob-TS004F_von_TZ3000_gwkzibhs.png
 
 ## 🧪 Example Automation
 
-See [`examples/automation_example.yaml`](examples/automation_example.yaml)
+alias: Example – TS004F Button Actions
+trigger:
+  - platform: event
+    event_type: zha_event
+    event_data:
+      device_id: YOUR_DEVICE_ID
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.event.data.command == 'press_type' and trigger.event.data.args[0] == 0 }}"
+        sequence:
+          - service: light.toggle
+            entity_id: light.living_room
 
----
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.event.data.command == 'left' }}"
+        sequence:
+          - service: light.turn_on
+            data:
+              brightness_step: -25
+            target:
+              entity_id: light.living_room
 
-## 📚 Changelog
-
-See [`CHANGELOG.md`](CHANGELOG.md)
 
 ---
 
@@ -89,4 +107,4 @@ If you find firmware variations, feel free to open an issue.
 
 ## 📜 License
 
-Released under the MIT License. See [`LICENSE`](LICENSE) for details.
+Released under the MIT License. See LICENSE for details.
