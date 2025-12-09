@@ -1,0 +1,45 @@
+name: TuYa Smart Knob (TS004F_von_TZ3000_gwkzibhs)
+service: ZHA
+event_type: zha_event
+identifier_key: device_id
+
+buttons:
+  - actions:
+      - title: press
+        conditions:
+          - key: command
+            value: press_type
+          - key: args.0
+            value: 0
+
+      - title: double press
+        conditions:
+          - key: command
+            value: press_type
+          - key: args.0
+            value: 1
+      - title: double press (alt)
+        conditions:
+          - key: command
+            value: remote_button_double_press
+
+      - title: long press
+        conditions:
+          - key: command
+            value: press_type
+          - key: args.0
+            value: 2
+      - title: long press (alt)
+        conditions:
+          - key: command
+            value: remote_button_long_press
+
+      - title: rotate left
+        conditions:
+          - key: command
+            value: left
+
+      - title: rotate right
+        conditions:
+          - key: command
+            value: right
